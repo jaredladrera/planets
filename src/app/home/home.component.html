@@ -1,0 +1,32 @@
+<h2>Records</h2>
+<table class="table" id="tablee" datatable [dtOptions]="dtOptions">
+  <thead class="thead-light">
+    <tr>
+      <th>Planet Name</th>
+      <th>Population</th>
+      <th>View</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <ng-template [ngIf]="planeta" [ngIfElse]="none">
+
+            <tr *ngFor="let plan of planeta.results">
+              <td>{{ plan.name }}</td>
+              <td>{{ plan.population }}</td>
+              <td><a href="#" routerLink="/details/{{plan.name}}" (click)="passData(plan.name)">Visit</a></td>
+            </tr>
+
+      </ng-template>
+
+      <ng-template #none>
+        <tr>
+            <td><h3>No Data Found</h3></td>
+        </tr>
+      </ng-template>
+
+
+
+
+  </tbody>
+</table>
